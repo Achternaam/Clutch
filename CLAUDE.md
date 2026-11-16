@@ -25,7 +25,19 @@ rojo sourcemap -o sourcemap.json  # voor luau-lsp (gitignored)
 | `src/client` | `StarterPlayer.StarterPlayerScripts.Client` | UI, input, camera |
 | `src/shared` | `ReplicatedStorage.Shared` | config-modules |
 
+Submappen:
+
+| Map | Inhoud |
+|---|---|
+| `src/server/services` | één ModuleScript per serversysteem |
+| `src/client/controllers` | één ModuleScript per clientsysteem |
+| `src/shared/config` | balanswaarden: `WeaponConfig`, `MovementConfig`, `RoundConfig` |
+| `src/shared/remotes` | `Remotes`: de enige plek waar RemoteEvents/RemoteFunctions worden gedeclareerd |
+
 - `init.server.luau` / `init.client.luau` maken van de map een Script / LocalScript; losse `*.luau` worden ModuleScripts.
+- Nieuwe remote: voeg de naam toe aan `EVENTS` of `FUNCTIONS` in `Remotes.luau`. De server maakt ze aan, de client wacht erop. Maak nooit los een RemoteEvent aan.
+- `WeaponConfig`: een wapen noemt alleen wat afwijkt van `Defaults` (via `__index`). `pairs()` over een wapen toont dus alleen de afwijkingen.
+- Teams (Rood, Blauw) en de tijdelijke spawnpunten staan in `default.project.json` (Teams-service en Workspace). Spelers worden automatisch ingedeeld.
 - Rojo synct alleen van schijf naar Studio. Bewerk scripts nooit rechtstreeks in Studio; die wijzigingen gaan verloren. Dat geldt ook voor Workspace-, Lighting- en SoundService-instellingen die in `default.project.json` staan.
 
 ## Vaste regels
