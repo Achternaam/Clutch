@@ -48,6 +48,44 @@
             512
           ]
         }
+      },
+      "SpawnRood": {
+        "$className": "SpawnLocation",
+        "$properties": {
+          "Anchored": true,
+          "Neutral": false,
+          "TeamColor": { "BrickColor": 21 },
+          "BrickColor": { "BrickColor": 21 },
+          "Position": [-40, 0.5, 0],
+          "Size": [6, 1, 6]
+        }
+      },
+      "SpawnBlauw": {
+        "$className": "SpawnLocation",
+        "$properties": {
+          "Anchored": true,
+          "Neutral": false,
+          "TeamColor": { "BrickColor": 23 },
+          "BrickColor": { "BrickColor": 23 },
+          "Position": [40, 0.5, 0],
+          "Size": [6, 1, 6]
+        }
+      }
+    },
+    "Teams": {
+      "Rood": {
+        "$className": "Team",
+        "$properties": {
+          "TeamColor": { "BrickColor": 21 },
+          "AutoAssignable": true
+        }
+      },
+      "Blauw": {
+        "$className": "Team",
+        "$properties": {
+          "TeamColor": { "BrickColor": 23 },
+          "AutoAssignable": true
+        }
       }
     },
     "Lighting": {
